@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+:root {
+  --hue: 14;
+  --first-color: hsl(var(--hue), 91%, 54%);
+  --first-color-alt: hsl(var(--hue), 91%, 50%);
+  --title-color: hsl(var(--hue), 4%, 100%);
+  --text-color: hsl(var(--hue), 4%, 85%);
+  --body-color: linear-gradient(90deg, hsl(104, 28%, 40%) 0%, hsl(58, 28%, 40%) 100%);
+  --container-color: linear-gradient(136deg, hsl(104, 28%, 35%) 0%, hsl(58, 28%, 35%) 100%);
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--body-color);
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  text-align: center;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.support-container {
+  width: 450px;
+  padding: 2rem;
+  background: var(--container-color);
+  border-radius: 14px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  animation: scaleUp 0.8s ease-in-out;
+}
+
+@keyframes scaleUp {
+  0% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+h1 {
+  color: var(--title-color);
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  animation: flipIn 1.5s ease-out;
+}
+
+@keyframes flipIn {
+  0% {
+    transform: rotateY(-180deg) scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    transform: rotateY(0deg) scale(1.2);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+p {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+label {
+  font-weight: bold;
+  font-size: 0.95rem;
+  margin-bottom: 5px;
+  color: var(--title-color);
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 2px solid var(--first-color);
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: var(--title-color);
+  text-align: center;
+  outline: none;
+  transition: box-shadow 0.3s, transform 0.2s;
+  animation: fadeUp 1s ease-out;
+}
+
+@keyframes fadeUp {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+input:focus, textarea:focus, select:focus {
+  box-shadow: 0 0 12px var(--first-color);
+  transform: scale(1.03);
+}
+
+textarea {
+  height: 100px;
+  resize: none;
+}
+
+/* General Button Styles */
+button {
+  width: 100%;
+  padding: 0.8rem;
+  background: var(--first-color);
+  color: var(--title-color);
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out, transform 0.2s;
+}
+
+button:hover {
+  background: var(--first-color-alt);
+  transform: translateY(-3px);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Home Button */
+.home-btn {
+  margin-top: 10px;
+  width: 100%;
+  padding: 0.8rem;
+  background: var(--first-color);
+  color: var(--title-color);
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out, transform 0.2s;
+}
+
+.home-btn:hover {
+  background: var(--first-color-alt);
+  transform: translateY(-3px);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Contact Info */
+.contact-info {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--first-color);
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .support-container {
+    width: 90%;
+  }
+}

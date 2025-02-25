@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | MindVibe</title>
+  <link rel="stylesheet" href="/stylesheets/admindashboard.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <section class="dashboard container">
+    <h2 class="section-title">Admin Dashboard</h2>
+    <div class="table-wrapper">
+      <table class="dashboard__table">
+        <thead>
+          <tr>
+            <th>Booking ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Date</th>
+            <th>Guests</th>
+            <th>Status</th>
+            <th>Update Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#if bookings.length}}
+            {{#each bookings}}
+              <tr>
+                <td>{{this._id}}</td>
+                <td>{{this.name}}</td>
+                <td>{{this.email}}</td>
+                <td>{{this.bookingDate}}</td>
+                <td>{{this.guests}}</td>
+                <td class="status {{this.status}}">{{this.status}}</td>
+                <td>
+                  <form action="/admin/booking/{{this._id}}/status" method="POST">
+                    <select name="status" class="status-select">
+                      <option value="pending" {{#if (eq this.status "pending")}}selected{{/if}}>Pending</option>
+                      <option value="confirmed" {{#if (eq this.status "confirmed")}}selected{{/if}}>Confirmed</option>
+                      <option value="cancelled" {{#if (eq this.status "cancelled")}}selected{{/if}}>Cancelled</option>
+                    </select>
+                    <button type="submit" class="button update-btn">Update</button>
+                  </form>
+                </td>
+              </tr>
+            {{/each}}
+          {{else}}
+            <tr>
+              <td colspan="7" class="no-data">No bookings found.</td>
+            </tr>
+          {{/if}}
+        </tbody>
+      </table>
+    </div>
+    <a href="/adminsupport" class="button support-btn">Support Requests</a>
+    <a href="/home" class="button back-home">Back Home</a>
+  </section>
+</body>
+</html>

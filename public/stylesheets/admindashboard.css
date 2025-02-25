@@ -1,0 +1,155 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;900&display=swap');
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --hue: 14;
+  --first-color: hsl(var(--hue), 91%, 54%);
+  --first-color-alt: hsl(var(--hue), 91%, 50%);
+  --title-color: hsl(var(--hue), 4%, 100%);
+  --text-color: hsl(var(--hue), 4%, 85%);
+  
+  /* Backgrounds */
+  --body-color: linear-gradient(90deg, hsl(104, 28%, 40%) 0%, hsl(58, 28%, 40%) 100%);
+  --container-color: linear-gradient(136deg, hsl(104, 28%, 35%) 0%, hsl(58, 28%, 35%) 100%);
+
+  /* Card & Table */
+  --card-bg: rgba(255, 255, 255, 0.1);
+  --border-color: rgba(255, 255, 255, 0.2);
+  --box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.3);
+  
+  /* Status Colors */
+  --confirmed: #27ae60;
+  --pending: #f39c12;
+  --cancelled: #e74c3c;
+
+  /* Buttons */
+  --button-bg: var(--first-color);
+  --button-hover-bg: var(--first-color-alt);
+}
+
+/*=============== BASE STYLES ===============*/
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--body-color);
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+/*=============== DASHBOARD STYLING ===============*/
+.dashboard {
+  width: 100%;
+  max-width: 1100px;
+  background: var(--container-color);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: var(--box-shadow);
+  text-align: center;
+}
+
+/*=============== TABLE STYLING ===============*/
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.dashboard__table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+  min-width: 700px;
+}
+
+.dashboard__table th, .dashboard__table td {
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  text-align: center;
+}
+
+.dashboard__table th {
+  background: var(--first-color);
+  font-weight: 600;
+}
+
+.dashboard__table tr:nth-child(even) {
+  background: var(--card-bg);
+}
+
+/*=============== STATUS COLORS ===============*/
+.status {
+  font-weight: bold;
+}
+
+.confirmed { color: var(--confirmed); }
+.pending { color: var(--pending); }
+.cancelled { color: var(--cancelled); }
+
+/*=============== BUTTON STYLES (Updated) ===============*/
+.button {
+  background: var(--button-bg);
+  padding: 0.8rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  color: var(--title-color);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+  display: inline-block;
+  font-weight: 500;
+}
+
+.button:hover {
+  background: var(--button-hover-bg);
+}
+
+/*=============== BACK TO HOME BUTTON (Updated) ===============*/
+.back-home {
+  background: var(--button-bg);
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  color: var(--title-color);
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.3s ease-in-out;
+  margin-top: 1rem;
+}
+
+.back-home:hover {
+  background: var(--button-hover-bg);
+}
+
+/*=============== EMPTY STATE ===============*/
+.no-data {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: var(--title-color);
+}
+
+/*=============== STATUS SELECT ===============*/
+.status-select {
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background: var(--title-color);
+  color: #000;
+}
+
+/*=============== FADE-IN ANIMATION ===============*/
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

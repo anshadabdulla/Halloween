@@ -1,0 +1,201 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;900&display=swap');
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --hue: 14;
+  --first-color: hsl(var(--hue), 91%, 54%);
+  --first-color-alt: hsl(var(--hue), 91%, 50%);
+  --title-color: hsl(var(--hue), 4%, 100%);
+  --text-color: hsl(var(--hue), 4%, 85%);
+  
+  /* Backgrounds */
+  --body-color: linear-gradient(90deg, hsl(104, 28%, 45%) 0%, hsl(58, 28%, 45%) 100%);
+  --container-color: linear-gradient(136deg, hsl(104, 28%, 38%) 0%, hsl(58, 28%, 38%) 100%);
+
+  /* Card & Table */
+  --card-bg: rgba(255, 255, 255, 0.1);
+  --border-color: rgba(255, 255, 255, 0.2);
+  --box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
+  
+  /* Status Colors */
+  --pending: #f39c12;
+  --in-progress: #3498db;
+  --resolved: #27ae60;
+
+  /* Buttons */
+  --button-bg: var(--first-color);
+  --button-hover-bg: var(--first-color-alt);
+}
+
+/*=============== BASE STYLES ===============*/
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--body-color);
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.admin-container {
+  width: 100%;
+  max-width: 1100px;
+  background: var(--container-color);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: var(--box-shadow);
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+  overflow: hidden;
+}
+
+h1 {
+  color: var(--title-color);
+}
+
+/*=============== TABLE WRAPPER (WITH SCROLLING) ===============*/
+.table-wrapper {
+  max-height: 400px;
+  overflow-y: auto;
+  overflow-x: auto;
+  border-radius: 8px;
+}
+
+.support-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  background: var(--card-bg);
+}
+
+.support-table th, .support-table td {
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  text-align: center;
+}
+
+.support-table th {
+  background: var(--first-color);
+  font-weight: 600;
+  color: var(--title-color);
+  text-transform: uppercase;
+}
+
+.support-table td, .support-table td a {
+  color: var(--title-color); /* Ensures Request ID, Name, and Email are White */
+  text-decoration: none;
+}
+
+.support-table tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/*=============== STATUS COLORS ===============*/
+.status {
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 4px;
+  text-transform: capitalize;
+}
+
+.pending { background: var(--pending); color: white; }
+.in-progress { background: var(--in-progress); color: white; }
+.resolved { background: var(--resolved); color: white; }
+
+/*=============== BUTTON STYLES ===============*/
+.button, .view-btn, .update-btn, .send-btn {
+  background: var(--button-bg);
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 6px;
+  color: var(--title-color);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out, transform 0.2s;
+  font-weight: 500;
+}
+
+.button:hover, .view-btn:hover, .update-btn:hover, .send-btn:hover {
+  background: var(--button-hover-bg);
+  transform: translateY(-2px);
+}
+
+/*=============== MODAL (DRAGGABLE) ===============*/
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: var(--container-color);
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: var(--box-shadow);
+  max-width: 500px;
+  cursor: grab;
+  position: absolute;
+}
+
+.modal-content:active {
+  cursor: grabbing;
+}
+
+.modal-header {
+  color: var(--title-color);
+}
+
+.modal-body {
+  color: var(--text-color);
+}
+
+.close-modal {
+  background: var(--button-bg);
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  color: var(--title-color);
+  cursor: pointer;
+}
+
+.close-modal:hover {
+  background: var(--button-hover-bg);
+}
+
+/*=============== BACK TO DASHBOARD LINK ===============*/
+.back-dashboard {
+  display: inline-block;
+  margin-top: 1.5rem;
+  color: var(--title-color); /* Matches Request ID color */
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease-in-out;
+}
+
+.back-dashboard:hover {
+  color: var(--first-color); /* Changes to primary color on hover */
+}
+
+/*=============== ANIMATIONS ===============*/
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

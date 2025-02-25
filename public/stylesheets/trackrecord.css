@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;900&display=swap');
+
+:root {
+  --hue: 14;
+  --primary-color: hsl(var(--hue), 91%, 54%);
+  --primary-dark: hsl(var(--hue), 91%, 45%);
+  --text-light: hsl(var(--hue), 4%, 85%);
+  --background: linear-gradient(90deg, hsl(104, 28%, 40%) 0%, hsl(58, 28%, 40%) 100%);
+  --container-bg: linear-gradient(136deg, hsl(104, 28%, 35%) 0%, hsl(58, 28%, 35%) 100%);
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--background);
+  color: var(--text-light);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+  margin: 0;
+  padding: 1rem;
+  overflow-x: hidden;
+}
+
+.track {
+  width: 90%;
+  max-width: 900px;
+  padding: 2rem;
+  background: var(--container-bg);
+  border-radius: 12px;
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  overflow-x: auto;
+  min-height: 80vh; /* Ensures the section has enough height */
+  justify-content: space-between; /* Pushes content properly */
+}
+
+/* Centering the Table */
+.track__content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 100%;
+  flex-grow: 1;
+}
+
+.table-wrapper {
+  flex-grow: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+}
+
+/* Perfectly Centered Table */
+.track__table {
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+  margin: auto;
+  display: table;
+  table-layout: fixed;
+}
+
+.track__table th, 
+.track__table td {
+  padding: 1rem;
+  font-size: 1rem;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  min-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.track__table th {
+  background: var(--primary-color);
+}
+
+.track__table tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Booking Status Colors */
+.confirmed {
+  color: #27ae60;
+  font-weight: bold;
+  white-space: nowrap;
+  display: inline-block;
+  min-width: 100px;
+}
+
+.pending {
+  color: #f39c12;
+  font-weight: bold;
+  white-space: nowrap;
+  display: inline-block;
+  min-width: 100px;
+}
+
+.cancelled {
+  color: #e74c3c;
+  font-weight: bold;
+  white-space: nowrap;
+  display: inline-block;
+  min-width: 100px;
+}
+
+/* Button Styling */
+.button {
+  background: var(--primary-color);
+  color: #fff;
+  padding: 0.9rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  display: inline-block;
+  margin-top: 1.5rem;
+}
+
+.button:hover {
+  background: var(--primary-dark);
+  transform: translateY(-3px);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Back Home Button Fixed to Bottom */
+.back-home {
+  width: fit-content;
+  background: transparent;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  padding: 0.8rem;
+  text-decoration: none;
+  transition: background 0.3s, color 0.3s;
+  align-self: center;
+  margin-top: auto; /* Ensures it stays at the bottom */
+}
+
+.back-home:hover {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+/* Responsive Fixes */
+@media (max-width: 768px) {
+  .track {
+    width: 95%;
+    padding: 1.5rem;
+  }
+
+  .track__content {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+
+  .track__table {
+    display: table;
+    width: auto;
+    max-width: 600px;
+  }
+
+  .track__table th, 
+  .track__table td {
+    padding: 0.6rem;
+    font-size: 0.85rem;
+    min-width: 100px;
+  }
+}

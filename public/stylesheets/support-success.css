@@ -1,0 +1,104 @@
+:root {
+    --hue: 14;
+    --first-color: hsl(var(--hue), 91%, 54%);
+    --first-color-alt: hsl(var(--hue), 91%, 50%);
+    --title-color: hsl(var(--hue), 4%, 100%);
+    --text-color: hsl(var(--hue), 4%, 85%);
+    --body-color: linear-gradient(90deg, hsl(104, 28%, 40%) 0%, hsl(58, 28%, 40%) 100%);
+    --container-color: linear-gradient(136deg, hsl(104, 28%, 35%) 0%, hsl(58, 28%, 35%) 100%);
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: var(--body-color);
+    color: var(--text-color);
+    animation: fadeIn 1.5s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .container {
+    text-align: center;
+    padding: 2rem;
+    background: var(--container-color);
+    border-radius: 14px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+    width: 400px;
+    animation: scaleUp 0.8s ease-in-out;
+  }
+  
+  @keyframes scaleUp {
+    0% {
+      transform: scale(0.9);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  h1 {
+    color: var(--title-color);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    animation: flipIn 1s ease-out;
+  }
+  
+  @keyframes flipIn {
+    0% {
+      transform: rotateY(-180deg) scale(0.5);
+      opacity: 0;
+    }
+    50% {
+      transform: rotateY(0deg) scale(1.2);
+      opacity: 0.8;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  p {
+    font-size: 1rem;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--title-color);
+    background: var(--first-color);
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.2s;
+  }
+  
+  .btn:hover {
+    background: var(--first-color-alt);
+    transform: translateY(-3px);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  @media (max-width: 480px) {
+    .container {
+      width: 90%;
+      padding: 1.5rem;
+    }
+  }
+  

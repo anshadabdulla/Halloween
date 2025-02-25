@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Track Record | Halloween</title>
+  <link rel="stylesheet" href="/stylesheets/trackrecord.css">
+  <script defer src="/scripts/trackrecord.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <section class="track container" id="track">
+    <h2 class="section-title">Track Record</h2>
+    <div class="track__content">
+      <div class="table-wrapper">
+        <table class="track__table">
+          <thead>
+            <tr>
+              <th>Booking ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Date</th>
+              <th>Guests</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#if bookings.length}}
+              {{#each bookings}}
+                <tr>
+                  <td class="expandable" aria-label="Booking ID">{{this._id}}</td>
+                  <td>{{this.name}}</td>
+                  <td class="expandable" aria-label="Email">{{this.email}}</td>
+                  <td class="expandable" aria-label="Date">{{this.bookingDate}}</td>
+                  <td>{{this.guests}}</td>
+                  <td class="status {{this.status}}">{{this.status}}</td>
+                </tr>
+              {{/each}}
+            {{else}}
+              <tr>
+                <td colspan="6" class="no-bookings">No bookings found.</td>
+              </tr>
+            {{/if}}
+          </tbody>
+        </table>
+      </div>
+      <a href="/home" class="button back-home">Back Home</a>
+    </div>
+  </section>
+</body>
+</html>

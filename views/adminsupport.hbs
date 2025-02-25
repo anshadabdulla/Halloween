@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Support Requests</title>
+    <link rel="stylesheet" href="/stylesheets/adminsupport.css">
+</head>
+<body>
+    <div class="admin-container">
+        <h1>Support Requests 📩</h1>
+
+        <div class="table-wrapper">
+            <table class="support-table">
+                <thead>
+                    <tr>
+                        <th>Request ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Category</th>
+                        <th>Message</th>
+                        <th>Status</th>
+                        <th>Update Status</th>
+                        <th>Response</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#if requests.length}}
+                        {{#each requests}}
+                            <tr>
+                                <td>{{this._id}}</td>
+                                <td>{{this.name}}</td>
+                                <td><a href="mailto:{{this.email}}" class="email-btn">{{this.email}}</a></td>
+                                <td>{{this.category}}</td>
+                                <td>
+                                    <button class="view-btn" onclick="openModal('{{this._id}}', `{{this.message}}`)" aria-label="View Message">View</button>
+                                </td>
+                                <td class="status {{this.status}}">{{this.status}}</td>
+                                <td>
+                                    <form action="/admin/support/{{this._id}}/status" method="POST" class="status-form">
+                                        <label for="status-{{this._id}}" class="hidden-label">Status</label>
+                                        <select name="status" id="status-{{this._id}}" class="status-dropdown">
+                                            <option value="Pending" {{#if (eq this.status "Pending")}}selected{{/if}}>Pending</option>
+                                            <option value="In Progress" {{#if (eq this.status "In Progress")}}selected{{/if}}>In Progress</option>
+                                            <option value="Resolved" {{#if (eq this.status "Resolved")}}selected{{/if}}>Resolved</option>
+                                        </select>
+                                        <button type="submit" class="update-btn">Update</button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form action="/admin/support/{{this._id}}/respond" method="POST" class="response-form">
+                                        <textarea name="response" placeholder="Enter response..." class="response-textarea" required>{{this.response}}</textarea>
+                                        <button type="submit" class="send-btn">Send</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        {{/each}}
+                    {{else}}
+                        <tr>
+                            <td colspan="8" class="no-data">No support requests found.</td>
+                        </tr>
+                    {{/if}}
+                </tbody>
+            </table>
+        </div>
+
+        <a href="/admindashboard" class="back-dashboard">⬅ Back to Dashboard</a>
+    </div>
+
+    <!-- Modal for Viewing Messages -->
+    <div id="messageModal" class="modal">
+        <div class="modal-content">
+            <h2 class="modal-header">Support Request Details</h2>
+            <p class="modal-body" id="modalMessage"></p>
+            <button class="close-modal" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <script src="/move.js"></script>
+</body>
+</html>

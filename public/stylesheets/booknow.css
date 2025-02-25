@@ -1,0 +1,189 @@
+  /*=============== GOOGLE FONTS ===============*/
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;900&display=swap');
+
+  /*=============== VARIABLES CSS ===============*/
+  :root {
+    --hue: 14;
+    --first-color: hsl(var(--hue), 91%, 54%);
+    --first-color-alt: hsl(var(--hue), 91%, 50%);
+    --title-color: hsl(var(--hue), 4%, 100%);
+    --text-color: hsl(var(--hue), 4%, 85%);
+    --body-color: linear-gradient(90deg, hsl(104, 28%, 40%) 0%, hsl(58, 28%, 40%) 100%);
+    --container-color: linear-gradient(136deg, hsl(104, 28%, 35%) 0%, hsl(58, 28%, 35%) 100%);
+  }
+
+  /*=============== BASE STYLES ===============*/
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--body-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    animation: fadeInUp 1.5s ease-in-out;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /*=============== BOOK NOW SECTION ===============*/
+  .book {
+    width: 450px;
+    padding: 2rem;
+    background: var(--container-color);
+    border-radius: 12px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    animation: scaleUp 0.8s ease-in-out;
+  }
+
+  @keyframes scaleUp {
+    0% {
+      transform: scale(0.9);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--title-color);
+    margin-bottom: 1rem;
+    animation: flipIn 1.5s ease-out;
+  }
+
+  @keyframes flipIn {
+    0% {
+      transform: rotateY(-180deg) scale(0.5);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  /* Animate form appearance */
+  .animate-form {
+    animation: fadeInUp 1s ease-out;
+  }
+
+  /*=============== BOOKING FORM ===============*/
+  .book__form {
+    display: grid;
+    gap: 1.2rem;
+  }
+
+  .form__group {
+    text-align: left;
+  }
+
+  .form__group label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--title-color);
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .form__group input {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 2px solid var(--first-color);
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.3);
+    color: var(--title-color);
+    outline: none;
+    transition: all 0.3s ease-in-out;
+  }
+
+  /* Input focus animation */
+  .form__group input:focus {
+    box-shadow: 0 0 15px var(--first-color);
+    transform: scale(1.05);
+  }
+
+  /*=============== BUTTON ANIMATIONS ===============*/
+  .button {
+    background: var(--first-color);
+    color: #fff;
+    padding: 0.9rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.3s;
+  }
+
+  /* Bounce animation on hover */
+  .button.bounce:hover {
+    animation: bounce 0.5s ease-in-out;
+  }
+
+  @keyframes bounce {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0); }
+  }
+
+  /*=============== BACK HOME BUTTON PULSE ===============*/
+  .back-home {
+    display: block;
+    margin-top: 1rem;
+    text-align: center;
+    background: transparent;
+    border: 2px solid var(--first-color);
+    color: var(--first-color);
+    padding: 0.8rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: transform 0.3s;
+  }
+
+  /* Pulse animation for Back Home button */
+  .back-home.pulse:hover {
+    animation: pulse 1s infinite;
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+  }
+
+  /*=============== RESPONSIVE DESIGN ===============*/
+  @media (max-width: 768px) {
+    .book {
+      width: 90%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .book {
+      width: 95%;
+    }
+  }
