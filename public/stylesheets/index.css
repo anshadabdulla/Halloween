@@ -21,6 +21,15 @@ body {
   animation: fadeIn 1.5s ease-in-out;
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .login-container {
   width: 450px;
   padding: 1.5rem;
@@ -29,6 +38,15 @@ body {
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
   text-align: center;
   animation: scaleUp 0.8s ease-in-out;
+}
+
+@keyframes scaleUp {
+  0% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .logo-section {
@@ -49,11 +67,43 @@ body {
   animation: bounceIn 1.5s ease-out;
 }
 
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.5) translateY(-200px);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.1) translateY(20px);
+    opacity: 1;
+  }
+  80% {
+    transform: scale(0.95) translateY(-10px);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+  }
+}
+
 h1 {
   color: var(--title-color);
   margin-bottom: 1rem;
   font-size: 1.9rem;
   animation: flipIn 1.5s ease-out;
+}
+
+@keyframes flipIn {
+  0% {
+    transform: rotateY(-180deg) scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    transform: rotateY(0deg) scale(1.2);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .content-wrapper {
@@ -104,6 +154,17 @@ input[type="password"] {
   animation: fadeUp 1s ease-out;
 }
 
+@keyframes fadeUp {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 input[type="email"]:focus,
 input[type="password"]:focus {
   box-shadow: 0 0 12px var(--first-color);
@@ -132,6 +193,10 @@ button:hover {
   margin-top: 1rem;
 }
 
+.account-options p {
+  margin: 5px 0;
+}
+
 .account-options a {
   color: var(--first-color);
   font-size: 0.9rem;
@@ -145,6 +210,7 @@ button:hover {
   color: var(--first-color-alt);
 }
 
+/* Updated Admin Login Button */
 .admin-login-btn {
   background: var(--first-color);
   border: none;
@@ -176,6 +242,7 @@ button:hover {
     flex-direction: column;
     align-items: center;
   }
+
   .image-section img {
     width: 150px;
   }
@@ -186,6 +253,7 @@ button:hover {
     width: 90%;
     padding: 1.2rem;
   }
+
   .admin-login-btn {
     font-size: 0.9rem;
     padding: 8px;
