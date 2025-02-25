@@ -403,7 +403,7 @@ router.post("/forgot-password", async (req, res) => {
     await user.save();
 
     // Email setup
-    const resetLink = `http://localhost:3000/resetpassword/${resetToken}`;
+    const resetLink = `https://halloween-eh3x.onrender.com/resetpassword/${resetToken}`;
     const mailOptions = {
       to: user.email,
       from: "mindvibe.learning@gmail.com",
