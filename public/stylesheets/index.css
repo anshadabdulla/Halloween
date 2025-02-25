@@ -38,10 +38,6 @@ body {
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
   text-align: center;
   animation: scaleUp 0.8s ease-in-out;
-  min-height: 80vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
 @keyframes scaleUp {
@@ -210,7 +206,6 @@ button:hover {
   color: var(--first-color-alt);
 }
 
-/* Updated Admin Login Button */
 .admin-login-btn {
   background: var(--first-color);
   border: none;
@@ -222,6 +217,8 @@ button:hover {
   cursor: pointer;
   margin-top: 8px;
   transition: all 0.3s ease-in-out;
+  width: auto;
+  display: inline-block;
 }
 
 .admin-login-btn:hover {
@@ -230,9 +227,14 @@ button:hover {
   transform: translateY(-1px);
 }
 
+/* 🚀 MOBILE VIEW FIX: Full Screen */
 @media (max-width: 768px) {
   body {
     height: auto;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .login-container {
@@ -247,7 +249,6 @@ button:hover {
   .content-wrapper {
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     gap: 1rem;
   }
 
