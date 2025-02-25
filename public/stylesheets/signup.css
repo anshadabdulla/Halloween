@@ -265,54 +265,131 @@
   
   /* Responsive Styles */
   
-  /* Extra small devices (phones, less than 576px) */
-  @media (max-width: 575.98px) {
-    .login-container {
-      width: 90%;
-      padding: 1.2rem;
-    }
-    .content-wrapper {
-      flex-direction: column;
-      align-items: center;
-    }
-    .image-section img {
-      width: 140px;
-    }
-    .admin-login-btn {
-      font-size: 0.9rem;
-      padding: 8px;
-    }
+/* 🚀 FULL-SCREEN MOBILE VIEW - No Extra Container */
+@media (max-width: 768px) {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html, body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #fff; /* Adjust as per your design */
+  }
+
+  main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
-  /* Small devices (landscape phones, 576px to 767.98px) */
-  @media (min-width: 576px) and (max-width: 767.98px) {
-    .login-container {
-      width: 85%;
-      padding: 1.4rem;
-    }
-    .content-wrapper {
-      flex-direction: column;
-      align-items: center;
-    }
-    .image-section img {
-      width: 160px;
-    }
+
+  .login-container {
+    width: 100%;
+    height: 100%;
+     position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .logo-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Move logo to the left */
+    justify-content: flex-start;
+    margin-bottom: 5px;
+    width: 100%; /* Ensure it spans the full width */
+    padding-left: 20px; /* Adjust spacing */
   }
   
-  /* Medium devices (tablets, 768px to 991.98px) */
-  @media (min-width: 768px) and (max-width: 991.98px) {
-    .login-container {
-      width: 75%;
-    }
-    .content-wrapper {
-      flex-direction: row;
-      align-items: center;
-    }
-    .image-section img {
-      width: 180px;
-    }
+  .logo {
+    height: 60px; /* Reduced size */
+    width: 60px; /* Reduced size */
+    border-radius: 50%;
+    background-color: var(--first-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem; /* Adjusted font size */
+    font-weight: bold;
+    color: var(--title-color);
+    animation: bounceIn 1.5s ease-out;
   }
   
-  /* Large devices (desktops and laptops, 992px and up) */
-  /* Defaults apply */
+  h1 {
+    margin-top: 35px;
+  }  
   
+
+  h1 {
+    font-size: 1.8rem;
+    margin-bottom: 2px; /* Reduced space between heading and labels */
+  }
+
+  .image-section {
+    display: none; /* Hide the image on mobile */
+  }
+
+  .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .form-section {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .form-group {
+    width: 100%;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 8px; /* Adjust spacing between form fields */
+  }
+
+  label {
+    width: 100%;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 2px; /* Reduced space between label and input */
+  }
+
+  input {
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+    padding: 10px;
+    font-size: 1rem;
+  }
+
+  button {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    font-size: 1rem;
+  }
+
+  .login-prompt {
+    text-align: center;
+    width: 100%;
+    margin-top: 10px;
+  }
+}
